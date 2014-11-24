@@ -102,6 +102,10 @@
 		<value condition="!Control.IsVisible(50)">[UPPERCASE][B]$LOCALIZE[207]:[/B][/UPPERCASE]</value>
 		<value condition="Control.HasFocus(50)">[B]$INFO[Container(50).Listitem.Label]$INFO[Container(50).Listitem.Label2, (,)][/B]</value>
 	</variable>
+	<variable name="HomeFavButton">
+		<value condition="!Control.HasFocus(15) + !Window.IsVisible(ShutdownMenu)">favoritenofocus.png</value>
+		<value condition="Control.HasFocus(15) | Window.IsVisible(ShutdownMenu)">favoritefocus.png</value>
+	</variable>
 	<variable name="HomePowerButton">
 		<value condition="!Control.HasFocus(20) + !Window.IsVisible(ShutdownMenu)">home-power.png</value>
 		<value condition="Control.HasFocus(20) | Window.IsVisible(ShutdownMenu)">home-power-focus.png</value>
@@ -320,32 +324,53 @@
 		<value condition="substring(ListItem.Filename,.wv,Right)">flags/music/audiocodec/wv.png</value>
 	</variable>
 	<variable name="IncludesMediaFlagsVideoAudioCodec">
-		<value condition="[stringcompare(ListItem.AudioCodec,ac3) | stringcompare(ListItem.AudioCodec,ac-3)] + stringcompare(ListItem.AudioChannels,1)">flags/movies/audiocodec/dd10.png</value>
-		<value condition="[stringcompare(ListItem.AudioCodec,ac3) | stringcompare(ListItem.AudioCodec,ac-3)] + stringcompare(ListItem.AudioChannels,2)">flags/movies/audiocodec/dd20.png</value>
-		<value condition="[stringcompare(ListItem.AudioCodec,ac3) | stringcompare(ListItem.AudioCodec,ac-3)] + stringcompare(ListItem.AudioChannels,3)">flags/movies/audiocodec/dd30.png</value>
-		<value condition="[stringcompare(ListItem.AudioCodec,ac3) | stringcompare(ListItem.AudioCodec,ac-3)] + stringcompare(ListItem.AudioChannels,4)">flags/movies/audiocodec/dd40.png</value>
-		<value condition="[stringcompare(ListItem.AudioCodec,ac3) | stringcompare(ListItem.AudioCodec,ac-3)] + stringcompare(ListItem.AudioChannels,5)">flags/movies/audiocodec/dd50.png</value>
-		<value condition="[stringcompare(ListItem.AudioCodec,ac3) | stringcompare(ListItem.AudioCodec,ac-3)] + stringcompare(ListItem.AudioChannels,6)">flags/movies/audiocodec/dd51.png</value>
-		<value condition="[stringcompare(ListItem.AudioCodec,ac3) | stringcompare(ListItem.AudioCodec,ac-3)] + stringcompare(ListItem.AudioChannels,7)">flags/movies/audiocodec/dd61.png</value>
-		<value condition="[stringcompare(ListItem.AudioCodec,ac3) | stringcompare(ListItem.AudioCodec,ac-3)] + stringcompare(ListItem.AudioChannels,8)">flags/movies/audiocodec/dd71.png</value>
-		<value condition="[stringcompare(ListItem.AudioCodec,dca) | stringcompare(ListItem.AudioCodec,dts)] + stringcompare(ListItem.AudioChannels,1)">flags/movies/audiocodec/dts10.png</value>
-		<value condition="[stringcompare(ListItem.AudioCodec,dca) | stringcompare(ListItem.AudioCodec,dts)] + stringcompare(ListItem.AudioChannels,2)">flags/movies/audiocodec/dts20.png</value>
-		<value condition="[stringcompare(ListItem.AudioCodec,dca) | stringcompare(ListItem.AudioCodec,dts)] + stringcompare(ListItem.AudioChannels,4)">flags/movies/audiocodec/dts40.png</value>
-		<value condition="[stringcompare(ListItem.AudioCodec,dca) | stringcompare(ListItem.AudioCodec,dts)] + stringcompare(ListItem.AudioChannels,6)">flags/movies/audiocodec/dts51.png</value>
-		<value condition="[stringcompare(ListItem.AudioCodec,dca) | stringcompare(ListItem.AudioCodec,dts)] + stringcompare(ListItem.AudioChannels,7)">flags/movies/audiocodec/dts61.png</value>
-		<value condition="[stringcompare(ListItem.AudioCodec,dca) | stringcompare(ListItem.AudioCodec,dts)] + stringcompare(ListItem.AudioChannels,8)">flags/movies/audiocodec/dts71.png</value>
-		<value condition="stringcompare(ListItem.AudioCodec,dtshd_hra) + ![stringcompare(ListItem.AudioChannels,6) | stringcompare(ListItem.AudioChannels,7) | stringcompare(ListItem.AudioChannels,8)]">flags/movies/audiocodec/dtshra.png</value>
-		<value condition="stringcompare(ListItem.AudioCodec,dtshd_hra) + stringcompare(ListItem.AudioChannels,6)">flags/movies/audiocodec/dtshra51.png</value>
-		<value condition="stringcompare(ListItem.AudioCodec,dtshd_hra) + stringcompare(ListItem.AudioChannels,7)">flags/movies/audiocodec/dtshra61.png</value>
-		<value condition="stringcompare(ListItem.AudioCodec,dtshd_hra) + stringcompare(ListItem.AudioChannels,8)">flags/movies/audiocodec/dtshra71.png</value>
-		<value condition="stringcompare(ListItem.AudioCodec,dtshd_ma) + ![stringcompare(ListItem.AudioChannels,3) | stringcompare(ListItem.AudioChannels,4) | stringcompare(ListItem.AudioChannels,5) | stringcompare(ListItem.AudioChannels,6) | stringcompare(ListItem.AudioChannels,7) | stringcompare(ListItem.AudioChannels,8)]">flags/movies/audiocodec/dtsma.png</value>
-		<value condition="stringcompare(ListItem.AudioCodec,dtshd_ma) + stringcompare(ListItem.AudioChannels,3)">flags/movies/audiocodec/dtsma30.png</value>
-		<value condition="stringcompare(ListItem.AudioCodec,dtshd_ma) + stringcompare(ListItem.AudioChannels,4)">flags/movies/audiocodec/dtsma40.png</value>
-		<value condition="stringcompare(ListItem.AudioCodec,dtshd_ma) + stringcompare(ListItem.AudioChannels,5)">flags/movies/audiocodec/dtsma50.png</value>
-		<value condition="stringcompare(ListItem.AudioCodec,dtshd_ma) + stringcompare(ListItem.AudioChannels,6)">flags/movies/audiocodec/dtsma51.png</value>
-		<value condition="stringcompare(ListItem.AudioCodec,dtshd_ma) + stringcompare(ListItem.AudioChannels,7)">flags/movies/audiocodec/dtsma61.png</value>
-		<value condition="stringcompare(ListItem.AudioCodec,dtshd_ma) + stringcompare(ListItem.AudioChannels,8)">flags/movies/audiocodec/dtsma71.png</value>
+		<value condition="[stringcompare(ListItem.AudioCodec,ac3) | stringcompare(ListItem.AudioCodec,ac-3)] + stringcompare(ListItem.AudioChannels,1) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dd10.png</value>
+		<value condition="[stringcompare(ListItem.AudioCodec,ac3) | stringcompare(ListItem.AudioCodec,ac-3)] + stringcompare(ListItem.AudioChannels,2) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dd20.png</value>
+		<value condition="[stringcompare(ListItem.AudioCodec,ac3) | stringcompare(ListItem.AudioCodec,ac-3)] + stringcompare(ListItem.AudioChannels,3) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dd30.png</value>
+		<value condition="[stringcompare(ListItem.AudioCodec,ac3) | stringcompare(ListItem.AudioCodec,ac-3)] + stringcompare(ListItem.AudioChannels,4) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dd40.png</value>
+		<value condition="[stringcompare(ListItem.AudioCodec,ac3) | stringcompare(ListItem.AudioCodec,ac-3)] + stringcompare(ListItem.AudioChannels,5) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dd50.png</value>
+		<value condition="[stringcompare(ListItem.AudioCodec,ac3) | stringcompare(ListItem.AudioCodec,ac-3)] + stringcompare(ListItem.AudioChannels,6) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dd51.png</value>
+		<value condition="[stringcompare(ListItem.AudioCodec,ac3) | stringcompare(ListItem.AudioCodec,ac-3)] + stringcompare(ListItem.AudioChannels,7) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dd61.png</value>
+		<value condition="[stringcompare(ListItem.AudioCodec,ac3) | stringcompare(ListItem.AudioCodec,ac-3)] + stringcompare(ListItem.AudioChannels,8) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dd71.png</value>
+		<value condition="[stringcompare(ListItem.AudioCodec,dca) | stringcompare(ListItem.AudioCodec,dts)] + stringcompare(ListItem.AudioChannels,1) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dts10.png</value>
+		<value condition="[stringcompare(ListItem.AudioCodec,dca) | stringcompare(ListItem.AudioCodec,dts)] + stringcompare(ListItem.AudioChannels,2) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dts20.png</value>
+		<value condition="[stringcompare(ListItem.AudioCodec,dca) | stringcompare(ListItem.AudioCodec,dts)] + stringcompare(ListItem.AudioChannels,4) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dts40.png</value>
+		<value condition="[stringcompare(ListItem.AudioCodec,dca) | stringcompare(ListItem.AudioCodec,dts)] + stringcompare(ListItem.AudioChannels,6) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dts51.png</value>
+		<value condition="[stringcompare(ListItem.AudioCodec,dca) | stringcompare(ListItem.AudioCodec,dts)] + stringcompare(ListItem.AudioChannels,7) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dts61.png</value>
+		<value condition="[stringcompare(ListItem.AudioCodec,dca) | stringcompare(ListItem.AudioCodec,dts)] + stringcompare(ListItem.AudioChannels,8) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dts71.png</value>
+		<value condition="stringcompare(ListItem.AudioCodec,dtshd_hra) + ![stringcompare(ListItem.AudioChannels,6) | stringcompare(ListItem.AudioChannels,7) | stringcompare(ListItem.AudioChannels,8)] + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dtshra.png</value>
+		<value condition="stringcompare(ListItem.AudioCodec,dtshd_hra) + stringcompare(ListItem.AudioChannels,6) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dtshra51.png</value>
+		<value condition="stringcompare(ListItem.AudioCodec,dtshd_hra) + stringcompare(ListItem.AudioChannels,7) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dtshra61.png</value>
+		<value condition="stringcompare(ListItem.AudioCodec,dtshd_hra) + stringcompare(ListItem.AudioChannels,8) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dtshra71.png</value>
+		<value condition="stringcompare(ListItem.AudioCodec,dtshd_ma) + ![stringcompare(ListItem.AudioChannels,3) | stringcompare(ListItem.AudioChannels,4) | stringcompare(ListItem.AudioChannels,5) | stringcompare(ListItem.AudioChannels,6) | stringcompare(ListItem.AudioChannels,7) | stringcompare(ListItem.AudioChannels,8)] + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dtsma.png</value>
+		<value condition="stringcompare(ListItem.AudioCodec,dtshd_ma) + stringcompare(ListItem.AudioChannels,3) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dtsma30.png</value>
+		<value condition="stringcompare(ListItem.AudioCodec,dtshd_ma) + stringcompare(ListItem.AudioChannels,4) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dtsma40.png</value>
+		<value condition="stringcompare(ListItem.AudioCodec,dtshd_ma) + stringcompare(ListItem.AudioChannels,5) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dtsma50.png</value>
+		<value condition="stringcompare(ListItem.AudioCodec,dtshd_ma) + stringcompare(ListItem.AudioChannels,6) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dtsma51.png</value>
+		<value condition="stringcompare(ListItem.AudioCodec,dtshd_ma) + stringcompare(ListItem.AudioChannels,7) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dtsma61.png</value>
+		<value condition="stringcompare(ListItem.AudioCodec,dtshd_ma) + stringcompare(ListItem.AudioChannels,8) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dtsma71.png</value>
+		<value condition="stringcompare(ListItem.AudioCodec,ac3) + Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dd.png</value>
+		<value condition="stringcompare(ListItem.AudioCodec,dca) + Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dts.png</value>
+		<value condition="stringcompare(ListItem.AudioCodec,dtshd_hra) + Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dtshd_hra.png</value>
+		<value condition="stringcompare(ListItem.AudioCodec,dtshd_ma) + Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dtsma.png</value>		
 		<value>flags/movies/audiocodec/$INFO[ListItem.AudioCodec,,.png]</value>
+	</variable>
+	<variable name="IncludesMediaFlagsVideoAudioChannels">
+		<value condition="stringcompare(ListItem.AudioChannels,0)">flags/movies/channels/0.png</value>
+		<value condition="stringcompare(ListItem.AudioChannels,1)">flags/movies/channels/1.png</value>
+		<value condition="stringcompare(ListItem.AudioChannels,2)">flags/movies/channels/2.png</value>
+		<value condition="stringcompare(ListItem.AudioChannels,3) + !stringcompare(ListItem.AudioCodec,dtshd_ma) + !stringcompare(ListItem.AudioCodec,ac3)">flags/movies/channels/3.png</value>
+		<value condition="stringcompare(ListItem.AudioChannels,3) + [stringcompare(ListItem.AudioCodec,dtshd_ma) |  stringcompare(ListItem.AudioCodec,ac3)]">flags/movies/channels/3.0.png</value>
+		<value condition="stringcompare(ListItem.AudioChannels,4)">flags/movies/channels/4.png</value>
+		<value condition="stringcompare(ListItem.AudioChannels,5)">flags/movies/channels/5.png</value>
+		<value condition="stringcompare(ListItem.AudioChannels,6)">flags/movies/channels/6.png</value>
+		<value condition="stringcompare(ListItem.AudioChannels,7)">flags/movies/channels/7.png</value>
+		<value condition="stringcompare(ListItem.AudioChannels,8)">flags/movies/channels/8.png</value>
+		<value condition="stringcompare(ListItem.AudioChannels,10)">flags/movies/channels/10.png</value>
+	</variable>
+	<variable name="IncludesMediaFlagsVideoDimension">
+		<value condition="!ListItem.IsStereoscopic">flags/movies/dimension/2D.png</value>
+		<value condition="ListItem.IsStereoscopic">flags/movies/dimension/3D.png</value>
 	</variable>
 	<variable name="IncludesMediaFlagsVideoSource">
 		<value condition="substring(ListItem.Filename,dvdrip) | substring(ListItem.Filename,sddvd) | substring(ListItem.Filename,.ifo,Right) | substring(ListItem.Filename,.vob,Right) | [[!substring(ListItem.Filename,hddvd) + !substring(ListItem.Filename,pdtv) + !substring(ListItem.Filename,bluray) + !substring(ListItem.Filename,blu-ray) + !substring(ListItem.Filename,brrip) + !substring(ListItem.Filename,sdtv) + !substring(ListItem.Filename,tvrip) + !substring(ListItem.Filename,hdtv) + !substring(ListItem.Filename,.evo,Right) + !substring(ListItem.Filename,.m2ts,Right) + !substring(ListItem.Filename,.bdmv,Right)] + [Container.Content(Movies) | Window.IsVisible(VideoPlaylist)] + [stringcompare(ListItem.VideoResolution,480) | stringcompare(ListItem.VideoResolution,540) | stringcompare(ListItem.VideoResolution,576)]]">flags/movies/source/dvd.png</value>
@@ -407,33 +432,58 @@
 		<value condition="[Container.Content(Movies) | Window.IsVisible(VideoPlaylist)] | [Container.Content(Episodes) + Control.IsVisible(598)]">flags/movies/studio/$INFO[ListItem.Studio,,.png]</value>
 		<value condition="Container.Content(MusicVideos)">flags/music/recordlabel/$INFO[ListItem.Studio,,.png]</value>
 	</variable>
+	<variable name="IncludesMediaFlagsExtras">
+		<value condition="IsEmpty(Window(movieinformation).Property(HideVideoExtrasButton))">flags/movies/Extras/extras.png</value>
+		<value condition="!IsEmpty(Window(movieinformation).Property(HideVideoExtrasButton))">flags/movies/Extras/noextras.png</value>
+	</variable>
+	<variable name="IncludesMediaFlagsFullscreenExtras">
+		<value condition="IsEmpty(Window(movieinformation).Property(HideVideoExtrasButton))">flags/movies/Extras/extras.png</value>
+		<value condition="!IsEmpty(Window(movieinformation).Property(HideVideoExtrasButton))">flags/movies/Extras/noextras.png</value>
+	</variable>
 	<variable name="IncludesMediaFlagsVideoFullScreenAudioCodec">
-		<value condition="[stringcompare(VideoPlayer.AudioCodec,ac3) | stringcompare(VideoPlayer.AudioCodec,ac-3)] + stringcompare(VideoPlayer.AudioChannels,1)">flags/movies/audiocodec/dd10.png</value>
-		<value condition="[stringcompare(VideoPlayer.AudioCodec,ac3) | stringcompare(VideoPlayer.AudioCodec,ac-3)] + stringcompare(VideoPlayer.AudioChannels,2)">flags/movies/audiocodec/dd20.png</value>
-		<value condition="[stringcompare(VideoPlayer.AudioCodec,ac3) | stringcompare(VideoPlayer.AudioCodec,ac-3)] + stringcompare(VideoPlayer.AudioChannels,3)">flags/movies/audiocodec/dd30.png</value>
-		<value condition="[stringcompare(VideoPlayer.AudioCodec,ac3) | stringcompare(VideoPlayer.AudioCodec,ac-3)] + stringcompare(VideoPlayer.AudioChannels,4)">flags/movies/audiocodec/dd40.png</value>
-		<value condition="[stringcompare(VideoPlayer.AudioCodec,ac3) | stringcompare(VideoPlayer.AudioCodec,ac-3)] + stringcompare(VideoPlayer.AudioChannels,5)">flags/movies/audiocodec/dd50.png</value>
-		<value condition="[stringcompare(VideoPlayer.AudioCodec,ac3) | stringcompare(VideoPlayer.AudioCodec,ac-3)] + stringcompare(VideoPlayer.AudioChannels,6)">flags/movies/audiocodec/dd51.png</value>
-		<value condition="[stringcompare(VideoPlayer.AudioCodec,ac3) | stringcompare(VideoPlayer.AudioCodec,ac-3)] + stringcompare(VideoPlayer.AudioChannels,7)">flags/movies/audiocodec/dd61.png</value>
-		<value condition="[stringcompare(VideoPlayer.AudioCodec,ac3) | stringcompare(VideoPlayer.AudioCodec,ac-3)] + stringcompare(VideoPlayer.AudioChannels,8)">flags/movies/audiocodec/dd71.png</value>
-		<value condition="[stringcompare(VideoPlayer.AudioCodec,dca) | stringcompare(VideoPlayer.AudioCodec,dts)] + stringcompare(VideoPlayer.AudioChannels,1)">flags/movies/audiocodec/dts10.png</value>
-		<value condition="[stringcompare(VideoPlayer.AudioCodec,dca) | stringcompare(VideoPlayer.AudioCodec,dts)] + stringcompare(VideoPlayer.AudioChannels,2)">flags/movies/audiocodec/dts20.png</value>
-		<value condition="[stringcompare(VideoPlayer.AudioCodec,dca) | stringcompare(VideoPlayer.AudioCodec,dts)] + stringcompare(VideoPlayer.AudioChannels,4)">flags/movies/audiocodec/dts40.png</value>
-		<value condition="[stringcompare(VideoPlayer.AudioCodec,dca) | stringcompare(VideoPlayer.AudioCodec,dts)] + stringcompare(VideoPlayer.AudioChannels,6)">flags/movies/audiocodec/dts51.png</value>
-		<value condition="[stringcompare(VideoPlayer.AudioCodec,dca) | stringcompare(VideoPlayer.AudioCodec,dts)] + stringcompare(VideoPlayer.AudioChannels,7)">flags/movies/audiocodec/dts61.png</value>
-		<value condition="[stringcompare(VideoPlayer.AudioCodec,dca) | stringcompare(VideoPlayer.AudioCodec,dts)] + stringcompare(VideoPlayer.AudioChannels,8)">flags/movies/audiocodec/dts71.png</value>
-		<value condition="stringcompare(VideoPlayer.AudioCodec,dtshd_hra) + ![stringcompare(VideoPlayer.AudioChannels,6) | stringcompare(VideoPlayer.AudioChannels,7) | stringcompare(VideoPlayer.AudioChannels,8)]">flags/movies/audiocodec/dtshra.png</value>
-		<value condition="stringcompare(VideoPlayer.AudioCodec,dtshd_hra) + stringcompare(VideoPlayer.AudioChannels,6)">flags/movies/audiocodec/dtshra51.png</value>
-		<value condition="stringcompare(VideoPlayer.AudioCodec,dtshd_hra) + stringcompare(VideoPlayer.AudioChannels,7)">flags/movies/audiocodec/dtshra61.png</value>
-		<value condition="stringcompare(VideoPlayer.AudioCodec,dtshd_hra) + stringcompare(VideoPlayer.AudioChannels,8)">flags/movies/audiocodec/dtshra71.png</value>
-		<value condition="stringcompare(VideoPlayer.AudioCodec,dtshd_ma) + ![stringcompare(VideoPlayer.AudioChannels,3) | stringcompare(VideoPlayer.AudioChannels,4) | stringcompare(VideoPlayer.AudioChannels,5) | stringcompare(VideoPlayer.AudioChannels,6) | stringcompare(VideoPlayer.AudioChannels,7) | stringcompare(VideoPlayer.AudioChannels,8)]">flags/movies/audiocodec/dtsma.png</value>
-		<value condition="stringcompare(VideoPlayer.AudioCodec,dtshd_ma) + stringcompare(VideoPlayer.AudioChannels,3)">flags/movies/audiocodec/dtsma30.png</value>
-		<value condition="stringcompare(VideoPlayer.AudioCodec,dtshd_ma) + stringcompare(VideoPlayer.AudioChannels,4)">flags/movies/audiocodec/dtsma40.png</value>
-		<value condition="stringcompare(VideoPlayer.AudioCodec,dtshd_ma) + stringcompare(VideoPlayer.AudioChannels,5)">flags/movies/audiocodec/dtsma50.png</value>
-		<value condition="stringcompare(VideoPlayer.AudioCodec,dtshd_ma) + stringcompare(VideoPlayer.AudioChannels,6)">flags/movies/audiocodec/dtsma51.png</value>
-		<value condition="stringcompare(VideoPlayer.AudioCodec,dtshd_ma) + stringcompare(VideoPlayer.AudioChannels,7)">flags/movies/audiocodec/dtsma61.png</value>
-		<value condition="stringcompare(VideoPlayer.AudioCodec,dtshd_ma) + stringcompare(VideoPlayer.AudioChannels,8)">flags/movies/audiocodec/dtsma71.png</value>
+		<value condition="[stringcompare(VideoPlayer.AudioCodec,ac3) | stringcompare(VideoPlayer.AudioCodec,ac-3)] + stringcompare(VideoPlayer.AudioChannels,1) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dd10.png</value>
+		<value condition="[stringcompare(VideoPlayer.AudioCodec,ac3) | stringcompare(VideoPlayer.AudioCodec,ac-3)] + stringcompare(VideoPlayer.AudioChannels,2) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dd20.png</value>
+		<value condition="[stringcompare(VideoPlayer.AudioCodec,ac3) | stringcompare(VideoPlayer.AudioCodec,ac-3)] + stringcompare(VideoPlayer.AudioChannels,3) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dd30.png</value>
+		<value condition="[stringcompare(VideoPlayer.AudioCodec,ac3) | stringcompare(VideoPlayer.AudioCodec,ac-3)] + stringcompare(VideoPlayer.AudioChannels,4) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dd40.png</value>
+		<value condition="[stringcompare(VideoPlayer.AudioCodec,ac3) | stringcompare(VideoPlayer.AudioCodec,ac-3)] + stringcompare(VideoPlayer.AudioChannels,5) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dd50.png</value>
+		<value condition="[stringcompare(VideoPlayer.AudioCodec,ac3) | stringcompare(VideoPlayer.AudioCodec,ac-3)] + stringcompare(VideoPlayer.AudioChannels,6) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dd51.png</value>
+		<value condition="[stringcompare(VideoPlayer.AudioCodec,ac3) | stringcompare(VideoPlayer.AudioCodec,ac-3)] + stringcompare(VideoPlayer.AudioChannels,7) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dd61.png</value>
+		<value condition="[stringcompare(VideoPlayer.AudioCodec,ac3) | stringcompare(VideoPlayer.AudioCodec,ac-3)] + stringcompare(VideoPlayer.AudioChannels,8) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dd71.png</value>
+		<value condition="[stringcompare(VideoPlayer.AudioCodec,dca) | stringcompare(VideoPlayer.AudioCodec,dts)] + stringcompare(VideoPlayer.AudioChannels,1) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dts10.png</value>
+		<value condition="[stringcompare(VideoPlayer.AudioCodec,dca) | stringcompare(VideoPlayer.AudioCodec,dts)] + stringcompare(VideoPlayer.AudioChannels,2) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dts20.png</value>
+		<value condition="[stringcompare(VideoPlayer.AudioCodec,dca) | stringcompare(VideoPlayer.AudioCodec,dts)] + stringcompare(VideoPlayer.AudioChannels,4) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dts40.png</value>
+		<value condition="[stringcompare(VideoPlayer.AudioCodec,dca) | stringcompare(VideoPlayer.AudioCodec,dts)] + stringcompare(VideoPlayer.AudioChannels,6) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dts51.png</value>
+		<value condition="[stringcompare(VideoPlayer.AudioCodec,dca) | stringcompare(VideoPlayer.AudioCodec,dts)] + stringcompare(VideoPlayer.AudioChannels,7) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dts61.png</value>
+		<value condition="[stringcompare(VideoPlayer.AudioCodec,dca) | stringcompare(VideoPlayer.AudioCodec,dts)] + stringcompare(VideoPlayer.AudioChannels,8) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dts71.png</value>
+		<value condition="stringcompare(VideoPlayer.AudioCodec,dtshd_hra) + ![stringcompare(VideoPlayer.AudioChannels,6) | stringcompare(VideoPlayer.AudioChannels,7) | stringcompare(VideoPlayer.AudioChannels,8)] + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dtshra.png</value>
+		<value condition="stringcompare(VideoPlayer.AudioCodec,dtshd_hra) + stringcompare(VideoPlayer.AudioChannels,6) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dtshra51.png</value>
+		<value condition="stringcompare(VideoPlayer.AudioCodec,dtshd_hra) + stringcompare(VideoPlayer.AudioChannels,7) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dtshra61.png</value>
+		<value condition="stringcompare(VideoPlayer.AudioCodec,dtshd_hra) + stringcompare(VideoPlayer.AudioChannels,8) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dtshra71.png</value>
+		<value condition="stringcompare(VideoPlayer.AudioCodec,dtshd_ma) + ![stringcompare(VideoPlayer.AudioChannels,3) | stringcompare(VideoPlayer.AudioChannels,4) | stringcompare(VideoPlayer.AudioChannels,5) | stringcompare(VideoPlayer.AudioChannels,6) | stringcompare(VideoPlayer.AudioChannels,7) | stringcompare(VideoPlayer.AudioChannels,8)] + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dtsma.png</value>
+		<value condition="stringcompare(VideoPlayer.AudioCodec,dtshd_ma) + stringcompare(VideoPlayer.AudioChannels,3) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dtsma30.png</value>
+		<value condition="stringcompare(VideoPlayer.AudioCodec,dtshd_ma) + stringcompare(VideoPlayer.AudioChannels,4) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dtsma40.png</value>
+		<value condition="stringcompare(VideoPlayer.AudioCodec,dtshd_ma) + stringcompare(VideoPlayer.AudioChannels,5) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dtsma50.png</value>
+		<value condition="stringcompare(VideoPlayer.AudioCodec,dtshd_ma) + stringcompare(VideoPlayer.AudioChannels,6) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dtsma51.png</value>
+		<value condition="stringcompare(VideoPlayer.AudioCodec,dtshd_ma) + stringcompare(VideoPlayer.AudioChannels,7) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dtsma61.png</value>
+		<value condition="stringcompare(VideoPlayer.AudioCodec,dtshd_ma) + stringcompare(VideoPlayer.AudioChannels,8) + !Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dtsma71.png</value>
+		<value condition="stringcompare(VideoPlayer.AudioCodec,ac3) + Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dd.png</value>
+		<value condition="stringcompare(VideoPlayer.AudioCodec,dca) + Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dts.png</value>
+		<value condition="stringcompare(VideoPlayer.AudioCodec,dtshd_hra) + Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dtshd_hra.png</value>
+		<value condition="stringcompare(VideoPlayer.AudioCodec,dtshd_ma) + Skin.HasSetting(Enable_Codec_Channel_Flags)">flags/movies/audiocodec/dtsma.png</value>	
 		<value>flags/movies/audiocodec/$INFO[VideoPlayer.AudioCodec,,.png]</value>
+	</variable>
+	<variable name="IncludesMediaFlagsVideoFullScreenChannels">
+		<value condition="stringcompare(VideoPlayer.AudioChannels,0)">flags/movies/channels/0.png</value>
+		<value condition="stringcompare(VideoPlayer.AudioChannels,1)">flags/movies/channels/1.png</value>
+		<value condition="stringcompare(VideoPlayer.AudioChannels,2)">flags/movies/channels/2.png</value>
+		<value condition="stringcompare(VideoPlayer.AudioChannels,3) + !stringcompare(VideoPlayer.AudioCodec,dtshd_ma) + !stringcompare(VideoPlayer.AudioCodec,ac3)">flags/movies/channels/3.png</value>
+		<value condition="stringcompare(VideoPlayer.AudioChannels,3) + [stringcompare(ListItem.AudioCodec,dtshd_ma) |  stringcompare(ListItem.AudioCodec,ac3)]">flags/movies/channels/3.0.png</value>
+		<value condition="stringcompare(VideoPlayer.AudioChannels,4)">flags/movies/channels/4.png</value>
+		<value condition="stringcompare(VideoPlayer.AudioChannels,5)">flags/movies/channels/5.png</value>
+		<value condition="stringcompare(VideoPlayer.AudioChannels,6)">flags/movies/channels/6.png</value>
+		<value condition="stringcompare(VideoPlayer.AudioChannels,7)">flags/movies/channels/7.png</value>
+		<value condition="stringcompare(VideoPlayer.AudioChannels,8)">flags/movies/channels/8.png</value>
+		<value condition="stringcompare(VideoPlayer.AudioChannels,10)">flags/movies/channels/10.png</value>
 	</variable>
 	<variable name="IncludesMediaFlagsVideoFullScreenRating">
 		<value condition="substring(VideoPlayer.Mpaa,Rated G) | substring(VideoPlayer.Mpaa,Rated: G)">flags/movies/rating/rating-g.png</value>
@@ -1363,5 +1413,49 @@
 	<variable name="Weather86">
 		<value condition="!IsEmpty(Window(Weather).Property(Current.UVIndex))">$INFO[Window.Property(Current.UVIndex)]</value>
 		<value>$INFO[Window.Property(Current.Cloudiness)]</value>
+	</variable>
+	<variable name="MoviesCustomNameString">
+		<value condition="Skin.String(MoviesCustomName)">$INFO[Skin.String(MoviesCustomName)]</value>
+		<value condition="!Skin.String(MoviesCustomName)">$LOCALIZE[342]</value>
+	</variable>
+	<variable name="TvShowsCustomNameString">
+		<value condition="Skin.String(TvShowsCustomName)">$INFO[Skin.String(TvShowsCustomName)]</value>
+		<value condition="!Skin.String(TvShowsCustomName)">$LOCALIZE[20343]</value>
+	</variable>
+	<variable name="MusicVideosCustomNameString">
+		<value condition="Skin.String(MusicVideosCustomName)">$INFO[Skin.String(MusicVideosCustomName)]</value>
+		<value condition="!Skin.String(MusicVideosCustomName)">$LOCALIZE[20389]</value>
+	</variable>
+	<variable name="TvCustomNameString">
+		<value condition="Skin.String(TvCustomName)">$INFO[Skin.String(TvCustomName)]</value>
+		<value condition="!Skin.String(TvCustomName)">$LOCALIZE[19020]</value>
+	</variable>
+	<variable name="MusicCustomNameString">
+		<value condition="Skin.String(MusicCustomName)">$INFO[Skin.String(MusicCustomName)]</value>
+		<value condition="!Skin.String(MusicCustomName)">$LOCALIZE[2]</value>
+	</variable>
+	<variable name="PicturesCustomNameString">
+		<value condition="Skin.String(PicturesCustomName)">$INFO[Skin.String(PicturesCustomName)]</value>
+		<value condition="!Skin.String(PicturesCustomName)">$LOCALIZE[1]</value>
+	</variable>
+	<variable name="ProgramsCustomNameString">
+		<value condition="Skin.String(ProgramsCustomName)">$INFO[Skin.String(ProgramsCustomName)]</value>
+		<value condition="!Skin.String(ProgramsCustomName)">$LOCALIZE[24001]</value>
+	</variable>
+	<variable name="WeatherCustomNameString">
+		<value condition="Skin.String(WeatherCustomName)">$INFO[Skin.String(WeatherCustomName)]</value>
+		<value condition="!Skin.String(WeatherCustomName)">$LOCALIZE[8]</value>
+	</variable>
+	<variable name="FavoritesCustomNameString">
+		<value condition="Skin.String(FavoritesCustomName)">$INFO[Skin.String(FavoritesCustomName)]</value>
+		<value condition="!Skin.String(FavoritesCustomName)">$LOCALIZE[1036]</value>
+	</variable>
+	<variable name="SettingsCustomNameString">
+		<value condition="Skin.String(SettingsCustomName)">$INFO[Skin.String(SettingsCustomName)]</value>
+		<value condition="!Skin.String(SettingsCustomName)">$LOCALIZE[5]</value>
+	</variable>
+	<variable name="PlayDiscCustomNameString">
+		<value condition="Skin.String(PlayDiscCustomName)">$INFO[Skin.String(PlayDiscCustomName)]</value>
+		<value condition="!Skin.String(PlayDiscCustomName)">$LOCALIZE[341]</value>
 	</variable>
 </includes>

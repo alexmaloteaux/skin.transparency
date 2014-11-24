@@ -2701,7 +2701,7 @@
 	</include>
 	<include name="HomeVideosButton">
 		<item id="1">
-			<label>3</label>
+			<label>$VAR[VideosCustomNameString]</label>
 			<onclick>ActivateWindow(Videos,Files,return)</onclick>
 			<icon>special://skin/backgrounds/videos.jpg</icon>
 			<thumb>$INFO[Skin.String(Home_Custom_Back_Videos_Folder)]</thumb>
@@ -2709,7 +2709,7 @@
 	</include>
 	<include name="HomeMoviesButton">
 		<item id="2">
-			<label>342</label>
+			<label>$VAR[MoviesCustomNameString]</label>
 			<onclick condition="!Skin.HasSetting(CinemaScript_HomeMenu)">ActivateWindow(Videos,movietitles,return)</onclick>
 			<onclick condition="Skin.HasSetting(CinemaScript_HomeMenu)">RunScript(script.cinema.experience,movietitles)</onclick>
 			<include condition="!Skin.HasSetting(Home_Movies_Fanart_Background)">home-movies-background</include>
@@ -2718,7 +2718,7 @@
 	</include>
 	<include name="HomeTVShowsButton">
 		<item id="3">
-			<label>20343</label>
+			<label>$VAR[TvShowsCustomNameString]</label>
 			<onclick>ActivateWindow(Videos,tvshowtitles,return)</onclick>
 			<include condition="!Skin.HasSetting(Home_TVShows_Fanart_Background)">home-tvshows-background</include>
 			<include condition="Skin.HasSetting(Home_TVShows_Fanart_Background)">home-tvshows-background-fanart</include>
@@ -2726,7 +2726,7 @@
 	</include>
 	<include name="HomeMusicVideosButton">
 		<item id="4">
-			<label>20389</label>
+			<label>$VAR[MusicVideosCustomNameString]</label>
 			<onclick>ActivateWindow(Videos,musicvideotitles,return)</onclick>
 			<icon>special://skin/backgrounds/musicvideos.jpg</icon>
 			<thumb>$INFO[Skin.String(Home_Custom_Back_MusicVideos_Folder)]</thumb>
@@ -2734,15 +2734,15 @@
 	</include>
 	<include name="HomeTVButton">
 		<item id="5">
-			<label>19020</label>
-			<onclick>ActivateWindow(TVChannels)</onclick>
+			<label>$VAR[TvCustomNameString]</label>
+			<onclick>ActivateWindow(PVR)</onclick>
 			<icon>special://skin/backgrounds/tv.jpg</icon>
 			<thumb>$INFO[Skin.String(Home_Custom_Back_TV_Folder)]</thumb>
 		</item>
 	</include>
 	<include name="HomeMusicButton">
 		<item id="6">
-			<label>2</label>
+			<label>$VAR[MusicCustomNameString]</label>
 			<onclick>ActivateWindow(MusicLibrary,artists,return)</onclick>
 			<include condition="!Skin.HasSetting(Home_Music_Fanart_Background)">home-music-background</include>
 			<include condition="Skin.HasSetting(Home_Music_Fanart_Background)">home-music-background-fanart</include>
@@ -2750,7 +2750,7 @@
 	</include>
 	<include name="HomeMusicFilesButton">
 		<item id="6">
-			<label>2</label>
+			<label>$VAR[MusicCustomNameString]</label>
 			<onclick>ActivateWindow(MusicFiles)</onclick>
 			<include condition="!Skin.HasSetting(Home_Music_Fanart_Background)">home-music-background</include>
 			<include condition="Skin.HasSetting(Home_Music_Fanart_Background)">home-music-background-fanart</include>
@@ -2758,7 +2758,7 @@
 	</include>
 	<include name="HomePicturesButton">
 		<item id="7">
-			<label>1</label>
+			<label>$VAR[PicturesCustomNameString]</label>
 			<onclick>ActivateWindow(Pictures)</onclick>
 			<icon>special://skin/backgrounds/pictures.jpg</icon>
 			<thumb>$INFO[Skin.String(Home_Custom_Back_Pictures_Folder)]</thumb>
@@ -2766,7 +2766,7 @@
 	</include>
 	<include name="HomeProgramsButton">
 		<item id="8">
-			<label>24001</label>
+			<label>$VAR[ProgramsCustomNameString]</label>
 			<onclick>ActivateWindow(Programs,addons,return)</onclick>
 			<icon>special://skin/backgrounds/programs.jpg</icon>
 			<thumb>$INFO[Skin.String(Home_Custom_Back_Programs_Folder)]</thumb>
@@ -2774,7 +2774,7 @@
 	</include>
 	<include name="HomeWeatherButton">
 		<item id="10">
-			<label>8</label>
+			<label>$VAR[WeatherCustomNameString]</label>
 			<onclick>ActivateWindow(Weather)</onclick>
 			<include condition="Skin.HasSetting(Home_Weather_Conditional_Backgrounds)">home-weather-background</include>
 			<include condition="!Skin.HasSetting(Home_Weather_Conditional_Backgrounds) + !Skin.HasSetting(Home_Weather_Custom_Conditional_Backgrounds)">home-weather-background-conditional</include>
@@ -2783,7 +2783,7 @@
 	</include>
 	<include name="HomeFavouritesButton">
 		<item id="11">
-			<label>1036</label>
+			<label>$VAR[FavoritesCustomNameString]</label>
 			<onclick>ActivateWindow(Favourites)</onclick>
 			<icon>special://skin/backgrounds/favourites.jpg</icon>
 			<thumb>$INFO[Skin.String(Home_Custom_Back_Favourites_Folder)]</thumb>
@@ -2791,7 +2791,7 @@
 	</include>
 	<include name="HomeSettingsButton">
 		<item id="12">
-			<label>5</label>
+			<label>$VAR[SettingsCustomNameString]</label>
 			<onclick>ActivateWindow(Settings)</onclick>
 			<icon>special://skin/backgrounds/settings.jpg</icon>
 			<thumb>$INFO[Skin.String(Home_Custom_Back_Settings_Folder)]</thumb>
@@ -2799,7 +2799,7 @@
 	</include>
 	<include name="HomePlayDiscButton">
 		<item id="13">
-			<label>341</label>
+			<label>$VAR[PlayDiscCustomNameString]</label>
 			<onclick>PlayDVD()</onclick>
 			<icon>special://skin/backgrounds/playdisc.jpg</icon>
 			<thumb>$INFO[Skin.String(Home_Custom_Back_PlayDisc_Folder)]</thumb>
@@ -2858,6 +2858,7 @@
 			<visible>Container(5040).HasFocus(1)</visible>
 			<include condition="Skin.HasSetting(HorizontalHomeMenu)">HorizontalSubMenuLayout</include>
 			<include condition="!Skin.HasSetting(HorizontalHomeMenu)">VerticalSubMenuLayout</include>
+			<animation effect="slide" start="0,0" end="0,30" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds) + Skin.HasSetting(HorizontalHomeMenu)">Conditional</animation>
 			<content>
 				<item id="8102">
 					<description>Menu Videos Sub Custom1</description>
@@ -2913,9 +2914,16 @@
 	<include name="HomeSubMovies">
 		<control type="fixedlist" id="8001">
 			<visible>Container(5040).HasFocus(2)</visible>
+			<animation effect="slide" start="0,0" end="0,30" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds) + Skin.HasSetting(HorizontalHomeMenu)">Conditional</animation>
 			<include condition="Skin.HasSetting(HorizontalHomeMenu)">HorizontalSubMenuLayout</include>
 			<include condition="!Skin.HasSetting(HorizontalHomeMenu)">VerticalSubMenuLayout</include>
 			<content>
+               <item id="8002">
+					<description>Menu Movies Sub Files</description>
+					<label>$LOCALIZE[744]</label>
+					<onclick>ActivateWindow(Videos,Files)</onclick>
+                    <visible>!Skin.HasSetting(Menu_Movies_Sub_Files)</visible>
+                </item>
 				<item id="8102">
 					<description>Menu Movies Sub Library</description>
 					<label>$LOCALIZE[14022]</label>
@@ -3070,6 +3078,7 @@
 			<visible>Container(5040).HasFocus(3)</visible>
 			<include condition="Skin.HasSetting(HorizontalHomeMenu)">HorizontalSubMenuLayout</include>
 			<include condition="!Skin.HasSetting(HorizontalHomeMenu)">VerticalSubMenuLayout</include>
+			<animation effect="slide" start="0,0" end="0,30" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds) + Skin.HasSetting(HorizontalHomeMenu)">Conditional</animation>
 			<content>
 				<item id="8102">
 					<description>Menu TVShows Sub TVGuide</description>
@@ -3169,6 +3178,7 @@
 			<visible>Container(5040).HasFocus(4)</visible>
 			<include condition="Skin.HasSetting(HorizontalHomeMenu)">HorizontalSubMenuLayout</include>
 			<include condition="!Skin.HasSetting(HorizontalHomeMenu)">VerticalSubMenuLayout</include>
+			<animation effect="slide" start="0,0" end="0,30" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds) + Skin.HasSetting(HorizontalHomeMenu)">Conditional</animation>
 			<content>
 				<item id="8102">
 					<description>Menu MusicVideos Sub Genres</description>
@@ -3274,6 +3284,7 @@
 			<visible>Container(5040).HasFocus(5)</visible>
 			<include condition="Skin.HasSetting(HorizontalHomeMenu)">HorizontalSubMenuLayout</include>
 			<include condition="!Skin.HasSetting(HorizontalHomeMenu)">VerticalSubMenuLayout</include>
+			<animation effect="slide" start="0,0" end="0,30" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds) + Skin.HasSetting(HorizontalHomeMenu)">Conditional</animation>
 			<content>
 				<item id="8102">
 					<description>Menu TV Sub TVGuide</description>
@@ -3355,6 +3366,7 @@
 			<visible>Container(5040).HasFocus(6)</visible>
 			<include condition="Skin.HasSetting(HorizontalHomeMenu)">HorizontalSubMenuLayout</include>
 			<include condition="!Skin.HasSetting(HorizontalHomeMenu)">VerticalSubMenuLayout</include>
+			<animation effect="slide" start="0,0" end="0,30" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds) + Skin.HasSetting(HorizontalHomeMenu)">Conditional</animation>
 			<content>
 				<item id="8102">
 					<description>Menu Music Sub Files</description>
@@ -3502,6 +3514,7 @@
 			<visible>Container(5040).HasFocus(7)</visible>
 			<include condition="Skin.HasSetting(HorizontalHomeMenu)">HorizontalSubMenuLayout</include>
 			<include condition="!Skin.HasSetting(HorizontalHomeMenu)">VerticalSubMenuLayout</include>
+			<animation effect="slide" start="0,0" end="0,30" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds) + Skin.HasSetting(HorizontalHomeMenu)">Conditional</animation>
 			<content>
 				<item id="8102">
 					<description>Menu Pictures Sub PicturePlugins</description>
@@ -3595,6 +3608,7 @@
 			<visible>Container(5040).HasFocus(8)</visible>
 			<include condition="Skin.HasSetting(HorizontalHomeMenu)">HorizontalSubMenuLayout</include>
 			<include condition="!Skin.HasSetting(HorizontalHomeMenu)">VerticalSubMenuLayout</include>
+			<animation effect="slide" start="0,0" end="0,30" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds) + Skin.HasSetting(HorizontalHomeMenu)">Conditional</animation>
 			<content>
 				<item id="8102">
 					<description>Menu Programs Sub Files</description>
@@ -3742,6 +3756,7 @@
 			<visible>Container(5040).HasFocus(10)</visible>
 			<include condition="Skin.HasSetting(HorizontalHomeMenu)">HorizontalSubMenuLayout</include>
 			<include condition="!Skin.HasSetting(HorizontalHomeMenu)">VerticalSubMenuLayout</include>
+			<animation effect="slide" start="0,0" end="0,30" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds) + Skin.HasSetting(HorizontalHomeMenu)">Conditional</animation>
 			<content>
 				<item id="8102">
 					<description>Menu Weather Sub Custom1</description>
@@ -3787,6 +3802,7 @@
 			<visible>Container(5040).HasFocus(11)</visible>
 			<include condition="Skin.HasSetting(HorizontalHomeMenu)">HorizontalSubMenuLayout</include>
 			<include condition="!Skin.HasSetting(HorizontalHomeMenu)">VerticalSubMenuLayout</include>
+			<animation effect="slide" start="0,0" end="0,30" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds) + Skin.HasSetting(HorizontalHomeMenu)">Conditional</animation>
 			<content>
 				<item id="8102">
 					<description>Menu Favourites Sub Custom1</description>
@@ -3826,6 +3842,7 @@
 			<visible>Container(5040).HasFocus(12)</visible>
 			<include condition="Skin.HasSetting(HorizontalHomeMenu)">HorizontalSubMenuLayout</include>
 			<include condition="!Skin.HasSetting(HorizontalHomeMenu)">VerticalSubMenuLayout</include>
+			<animation effect="slide" start="0,0" end="0,30" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds) + Skin.HasSetting(HorizontalHomeMenu)">Conditional</animation>
 			<content>
 				<item id="8102">
 					<description>Menu Settings Sub Skin Settings</description>
@@ -3931,6 +3948,7 @@
 			<visible>Container(5040).HasFocus(13)</visible>
 			<include condition="Skin.HasSetting(HorizontalHomeMenu)">HorizontalSubMenuLayout</include>
 			<include condition="!Skin.HasSetting(HorizontalHomeMenu)">VerticalSubMenuLayout</include>
+			<animation effect="slide" start="0,0" end="0,30" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds) + Skin.HasSetting(HorizontalHomeMenu)">Conditional</animation>
 			<content>
 				<item id="8102">
 					<description>Menu PlayDisc Sub Player Controls</description>
@@ -3982,6 +4000,7 @@
 			<visible>Container(5040).HasFocus(14)</visible>
 			<include condition="Skin.HasSetting(HorizontalHomeMenu)">HorizontalSubMenuLayout</include>
 			<include condition="!Skin.HasSetting(HorizontalHomeMenu)">VerticalSubMenuLayout</include>
+			<animation effect="slide" start="0,0" end="0,30" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds) + Skin.HasSetting(HorizontalHomeMenu)">Conditional</animation>
 			<content>
 				<item id="8102">
 					<description>Menu Custom1 Sub Custom1</description>
@@ -4051,6 +4070,7 @@
 			<visible>Container(5040).HasFocus(15)</visible>
 			<include condition="Skin.HasSetting(HorizontalHomeMenu)">HorizontalSubMenuLayout</include>
 			<include condition="!Skin.HasSetting(HorizontalHomeMenu)">VerticalSubMenuLayout</include>
+			<animation effect="slide" start="0,0" end="0,30" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds) + Skin.HasSetting(HorizontalHomeMenu)">Conditional</animation>
 			<content>
 				<item id="8102">
 					<description>Menu Custom2 Sub Custom1</description>
@@ -4120,6 +4140,7 @@
 			<visible>Container(5040).HasFocus(16)</visible>
 			<include condition="Skin.HasSetting(HorizontalHomeMenu)">HorizontalSubMenuLayout</include>
 			<include condition="!Skin.HasSetting(HorizontalHomeMenu)">VerticalSubMenuLayout</include>
+			<animation effect="slide" start="0,0" end="0,30" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds) + Skin.HasSetting(HorizontalHomeMenu)">Conditional</animation>
 			<content>
 				<item id="8102">
 					<description>Menu Custom3 Sub Custom1</description>
@@ -4210,6 +4231,7 @@
 			<texture border="30,0,30,0">submenu-hor.png</texture>
 			<animation effect="zoom" start="115,601,1050,1" end="115,566,1050,35" time="200">Visible</animation>
 			<animation effect="zoom" start="115,566,1050,35" end="115,601,1050,1" time="200">Hidden</animation>
+			<animation effect="slide" start="0,0" end="0,30" time="0" condition="!system.getbool(lookandfeel.enablerssfeeds) + Skin.HasSetting(HorizontalHomeMenu)">Conditional</animation>
 			<visible>ControlGroup(8000).HasFocus</visible>
 		</control>
 	</include>
@@ -4369,7 +4391,7 @@
 	<include name="SearchButton">
 		<control type="button" id="10">
 			<description>Search push button</description>
-			<posx>1199</posx>
+			<posx>1150</posx>
 			<posy>7</posy>
 			<width>20</width>
 			<height>20</height>
@@ -4379,10 +4401,11 @@
 			<texturenofocus>SearchNoFocus.png</texturenofocus>
 			<pulseonselect>true</pulseonselect>
 			<onleft>20</onleft>
-			<onright>20</onright>
+			<onright>15</onright>
 			<onup>9000</onup>
 			<ondown>9000</ondown>
 			<onclick>RunScript(script.globalsearch)</onclick>
+			<animation effect="slide" start="0,0" end="49,0" time="0" condition="Skin.HasSetting(HideFavorite)">Conditional</animation>
 		</control>
 		<control type="image">
 			<posx>1219</posx>
