@@ -149,7 +149,9 @@ msgctxt "#31048"
 msgid "Timers"
 msgstr ""
 
-#empty string with id 31049
+msgctxt "#31049"
+msgid "Fanarts"
+msgstr ""
 
 msgctxt "#31050"
 msgid "Finish Time"
@@ -225,7 +227,11 @@ msgctxt "#31106"
 msgid "Miscellaneous options"
 msgstr ""
 
-#empty strings from id 31107 to 31108
+msgctxt "#31107"
+msgid "Hide Favorites Button"
+msgstr ""
+
+#empty strings  31108
 
 msgctxt "#31109"
 msgid "Enable logos"
@@ -341,13 +347,21 @@ msgctxt "#31144"
 msgid "Fanart - Long list"
 msgstr ""
 
-#empty string with id 31145
+msgctxt "#31145"
+msgid "All - Enable Extras flag"
+msgstr ""
 
 msgctxt "#31146"
 msgid "Always play trailers fullscreen"
 msgstr ""
 
-#empty strings from id 31147 to 31148
+msgctxt "#31147"
+msgid "All - Enable 2D/3D flag"
+msgstr ""
+
+msgctxt "#31148"
+msgid "All - Enable video extras flag /NOT USED ATM/"
+msgstr ""
 
 msgctxt "#31149"
 msgid "Hide trailer icon"
@@ -361,7 +375,9 @@ msgctxt "#31151"
 msgid "Source name:"
 msgstr ""
 
-#empty string with id 31152
+msgctxt "#31152"
+msgid "All - Separate codec and channels flags"
+msgstr ""
 
 msgctxt "#31153"
 msgid "Weather icon"
@@ -550,7 +566,11 @@ msgctxt "#31200"
 msgid "Custom add-on options"
 msgstr ""
 
-#empty strings from id 31201 to 31209
+msgctxt "#31201"
+msgid "CUSTOM NAME"
+msgstr ""
+
+#empty strings from id 31202 to 31209
 
 msgctxt "#31210"
 msgid "Enable TvTunes add-on"
@@ -580,7 +600,11 @@ msgctxt "#31216"
 msgid "Extras"
 msgstr ""
 
-#empty strings from id 31217 to 31218
+msgctxt "#31217"
+msgid "Disable VideoExtras"
+msgstr ""
+
+#empty strings from id 31218 to 31218
 
 msgctxt "#31219"
 msgid "Logo"

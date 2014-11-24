@@ -1,3 +1,26 @@
+Custom changes added by sasha : 
+
+-Move horizontal bar below when rss feed is disabled
+-Add an option to enable a File SubMenu in movie Menu
+-Add an option to add a Favorite Button between GlobalSearch and Shutdown Menu
+-Add an option to separate Video and Channels Video Flags
+-Allow the user to customize Menu Names
+-Add VideoExtras Button in DialogVideoInfo
+-Add a 3D flag icon on media flag list for movies
+-Add pcm_16le flag (some lpcm 7.1 mkv use this)
+-Add H265/HEVC flags
+-Add a new Fanart2 View with different plot movie position
+
+
+TODO : 
+
+-Add extras flags and display them in the mediaflagsvideo in windowmovie / WIP
+-Correct the offset of the mediaflags position iwn the VideoFullscreen and in the different View_xxx
+-Xml dialog for videosextras
+-in fanart view add rating genre and year for tv shows
+-add kodi lago in fanart2 view when plot is emoty
+-add dbid extras cache method
+
 Transparency! v8.0.6
 - language update
 
