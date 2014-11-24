@@ -671,6 +671,17 @@
 						<onclick>Skin.ToggleSetting(homepageSysteminfo)</onclick>
 						<selected>!Skin.HasSetting(homepageSysteminfo)</selected>
 					</control>
+					<control type="image" id="233">
+						<width>880</width>
+						<height>2</height>
+						<texture>separator.png</texture>
+					</control>
+					<control type="radiobutton" id="234">
+						<description>enable Favorite Button</description>
+						<label>$LOCALIZE[31107]</label>
+						<onclick>Skin.ToggleSetting(HideFavorite)</onclick>
+						<selected>Skin.HasSetting(HideFavorite)</selected>
+					</control>
 				</control>
 				<control type="scrollbar" id="299">
 					<posx>1083</posx>
@@ -1151,6 +1162,21 @@
 						<onclick>Skin.ToggleSetting(Enable_Music_Media_Flags)</onclick>
 						<selected>!Skin.HasSetting(Enable_Music_Media_Flags)</selected>
 					</control>
+					<control type="radiobutton" id="497">
+						<label>$LOCALIZE[31152]</label>
+						<onclick>Skin.ToggleSetting(Enable_Codec_Channel_Flags)</onclick>
+						<selected>Skin.HasSetting(Enable_Codec_Channel_Flags)</selected>
+					</control>
+					<control type="radiobutton" id="498">
+						<label>$LOCALIZE[31147]</label>
+						<onclick>Skin.ToggleSetting(Enable_Dimension_Flags)</onclick>
+						<selected>Skin.HasSetting(Enable_Dimension_Flags)</selected>
+					</control>
+					<control type="radiobutton" id="499">
+						<label>$LOCALIZE[31145]</label>
+						<onclick>Skin.ToggleSetting(Enable_Extras_Flags)</onclick>
+						<selected>Skin.HasSetting(Enable_Extras_Flags)</selected>
+					</control>
 					<control type="image" id="416">
 						<width>880</width>
 						<height>2</height>
@@ -1262,6 +1288,16 @@
 						<selected>Skin.HasSetting(HideSearch)</selected>
 					</control>
 					<control type="image" id="518">
+						<width>880</width>
+						<height>2</height>
+						<texture>separator.png</texture>
+					</control>
+					<control type="radiobutton" id="519">
+						<label>31217</label>
+						<onclick>Skin.ToggleSetting(DisableVideoExtras)</onclick>
+						<selected>Skin.HasSetting(DisableVideoExtras)</selected>
+					</control>
+					<control type="image" id="520">
 						<width>880</width>
 						<height>2</height>
 						<texture>separator.png</texture>
@@ -1760,6 +1796,11 @@
 						<onclick>Skin.ToggleSetting(Hide-Videos-Item)</onclick>
 						<selected>Skin.HasSetting(Hide-Videos-Item)</selected>
 					</control>
+					<control type="radiobutton" id="9990">
+						<label>$LOCALIZE[24021] - $LOCALIZE[3] - $LOCALIZE[31030]2</label>
+						<onclick>Skin.ToggleSetting(Hide-Videos-Fanart2)</onclick>
+						<selected>Skin.HasSetting(Hide-Videos-Fanart2)</selected>
+					</control>
 					<control type="image" id="743">
 						<width>880</width>
 						<height>2</height>
@@ -2098,6 +2139,14 @@
 					<onup>8100</onup>
 					<ondown>8100</ondown>
 					<include>VisibleFadeEffect</include>
+					<control type="button" id="8199">
+						<description>Menu Videos Alternative Name</description>
+						<label>[B]$LOCALIZE[31201] :  [/B][COLOR=lightblue]$INFO[Skin.String(VideosCustomName)][/COLOR]</label>
+						<include>ButtonMenuSettings2</include>
+						<onclick>Skin.SetString(VideosCustomName)</onclick>
+						<textcolor>darkblue</textcolor>
+						<focusedcolor>darkblue</focusedcolor>
+					</control>
 					<control type="radiobutton" id="8101">
 						<description>Menu Videos Sub</description>
 						<label>[B]$LOCALIZE[1034][/B]</label>
@@ -2195,6 +2244,14 @@
 					<onup>8100</onup>
 					<ondown>8100</ondown>
 					<include>VisibleFadeEffect</include>
+					<control type="button" id="8199">
+						<description>Menu Movies Alternative Name</description>
+						<label>[B]$LOCALIZE[31201] :  [/B][COLOR=lightblue]$INFO[Skin.String(MoviesCustomName)][/COLOR]</label>
+						<include>ButtonMenuSettings2</include>
+						<onclick>Skin.SetString(MoviesCustomName)</onclick>
+						<textcolor>darkblue</textcolor>
+						<focusedcolor>darkblue</focusedcolor>
+					</control>
 					<control type="radiobutton" id="8101">
 						<description>Menu Movies Sub</description>
 						<label>[B]$LOCALIZE[1034][/B]</label>
@@ -2207,6 +2264,15 @@
 						<selected>!Skin.HasSetting(Menu_Movies_Sub)</selected>
 					</control>
 					<control type="radiobutton" id="8102">
+						<description>Menu Movies Sub Files</description>
+						<label>[B]$LOCALIZE[744][/B]</label>
+						<include>ButtonMenuSettings2</include>
+						<onfocus>Skin.SetString(MoviesCustom,0)</onfocus>
+						<onclick>Skin.ToggleSetting(Menu_Movies_Sub_Files)</onclick>
+						<selected>!Skin.HasSetting(Menu_Movies_Sub_Files)</selected>
+						<enable>!Skin.HasSetting(Menu_Movies_Sub)</enable>
+					</control>
+					<control type="radiobutton" id="8103">
 						<description>Menu Movies Sub Library</description>
 						<label>[B]$LOCALIZE[14022][/B]</label>
 						<include>ButtonMenuSettings2</include>
@@ -2215,7 +2281,7 @@
 						<selected>!Skin.HasSetting(Menu_Movies_Sub_Library)</selected>
 						<enable>!Skin.HasSetting(Menu_Movies_Sub)</enable>
 					</control>
-					<control type="radiobutton" id="8103">
+					<control type="radiobutton" id="8104">
 						<description>Menu Movies Sub Genres</description>
 						<label>[B]$LOCALIZE[135][/B]</label>
 						<include>ButtonMenuSettings2</include>
@@ -2224,7 +2290,7 @@
 						<selected>!Skin.HasSetting(Menu_Movies_Sub_Genres)</selected>
 						<enable>!Skin.HasSetting(Menu_Movies_Sub)</enable>
 					</control>
-					<control type="radiobutton" id="8104">
+					<control type="radiobutton" id="8105">
 						<description>Menu Movies Sub Year</description>
 						<label>[B]$LOCALIZE[345][/B]</label>
 						<include>ButtonMenuSettings2</include>
@@ -2233,7 +2299,7 @@
 						<selected>!Skin.HasSetting(Menu_Movies_Sub_Years)</selected>
 						<enable>!Skin.HasSetting(Menu_Movies_Sub)</enable>
 					</control>
-					<control type="radiobutton" id="8105">
+					<control type="radiobutton" id="8106">
 						<description>Menu Movies Sub Actors</description>
 						<label>[B]$LOCALIZE[344][/B]</label>
 						<include>ButtonMenuSettings2</include>
@@ -2242,7 +2308,7 @@
 						<selected>!Skin.HasSetting(Menu_Movies_Sub_Actors)</selected>
 						<enable>!Skin.HasSetting(Menu_Movies_Sub)</enable>
 					</control>
-					<control type="radiobutton" id="8106">
+					<control type="radiobutton" id="8107">
 						<description>Menu Movies Sub Directors</description>
 						<label>[B]$LOCALIZE[20348][/B]</label>
 						<include>ButtonMenuSettings2</include>
@@ -2251,7 +2317,7 @@
 						<selected>!Skin.HasSetting(Menu_Movies_Sub_Directors)</selected>
 						<enable>!Skin.HasSetting(Menu_Movies_Sub)</enable>
 					</control>
-					<control type="radiobutton" id="8107">
+					<control type="radiobutton" id="8108">
 						<description>Menu Movies Sub Studio</description>
 						<label>[B]$LOCALIZE[20388][/B]</label>
 						<include>ButtonMenuSettings2</include>
@@ -2260,7 +2326,7 @@
 						<selected>!Skin.HasSetting(Menu_Movies_Sub_Studios)</selected>
 						<enable>!Skin.HasSetting(Menu_Movies_Sub)</enable>
 					</control>
-					<control type="radiobutton" id="8108">
+					<control type="radiobutton" id="8109">
 						<description>Menu Movies Sub Countries</description>
 						<label>[B]$LOCALIZE[20451][/B]</label>
 						<include>ButtonMenuSettings2</include>
@@ -2269,7 +2335,7 @@
 						<selected>Skin.HasSetting(Menu_Movies_Sub_Countries)</selected>
 						<enable>!Skin.HasSetting(Menu_Movies_Sub)</enable>
 					</control>
-					<control type="radiobutton" id="8109">
+					<control type="radiobutton" id="8110">
 						<description>Menu Movies Sub Sets</description>
 						<label>[B]$LOCALIZE[20434][/B]</label>
 						<include>ButtonMenuSettings2</include>
@@ -2278,7 +2344,7 @@
 						<selected>Skin.HasSetting(Menu_Movies_Sub_Sets)</selected>
 						<enable>!Skin.HasSetting(Menu_Movies_Sub)</enable>
 					</control>
-					<control type="radiobutton" id="8110">
+					<control type="radiobutton" id="8111">
 						<description>Menu Movies Sub Tags</description>
 						<label>[B]$LOCALIZE[20459][/B]</label>
 						<include>ButtonMenuSettings2</include>
@@ -2287,7 +2353,7 @@
 						<selected>Skin.HasSetting(Menu_Movies_Sub_Tags)</selected>
 						<enable>!Skin.HasSetting(Menu_Movies_Sub)</enable>
 					</control>
-					<control type="radiobutton" id="8111">
+					<control type="radiobutton" id="8112">
 						<description>Menu Movies Sub RecentlyAdded</description>
 						<label>[B]$LOCALIZE[31410][/B]</label>
 						<include>ButtonMenuSettings2</include>
@@ -2296,7 +2362,7 @@
 						<selected>!Skin.HasSetting(Menu_Movies_Sub_RecentlyAdded)</selected>
 						<enable>!Skin.HasSetting(Menu_Movies_Sub)</enable>
 					</control>
-					<control type="radiobutton" id="8112">
+					<control type="radiobutton" id="8113">
 						<description>Menu Movies Sub Playlists</description>
 						<label>[B]$LOCALIZE[136][/B]</label>
 						<include>ButtonMenuSettings2</include>
@@ -2305,7 +2371,7 @@
 						<selected>Skin.HasSetting(Menu_Movies_Sub_Playlists)</selected>
 						<enable>!Skin.HasSetting(Menu_Movies_Sub)</enable>
 					</control>
-					<control type="radiobutton" id="8113">
+					<control type="radiobutton" id="8114">
 						<description>Menu Movies Sub Recordings</description>
 						<label>[B]$LOCALIZE[20007][/B]</label>
 						<include>ButtonMenuSettings2</include>
@@ -2314,7 +2380,7 @@
 						<selected>Skin.HasSetting(Menu_Movies_Sub_Recordings)</selected>
 						<enable>!Skin.HasSetting(Menu_Movies_Sub)</enable>
 					</control>
-					<control type="radiobutton" id="8114">
+					<control type="radiobutton" id="8115">
 						<description>Menu Movies Sub VideoPlugins</description>
 						<label>[B]$LOCALIZE[1037][/B]</label>
 						<include>ButtonMenuSettings2</include>
@@ -2323,7 +2389,7 @@
 						<selected>!Skin.HasSetting(Menu_Movies_Sub_VideoPlugins)</selected>
 						<enable>!Skin.HasSetting(Menu_Movies_Sub)</enable>
 					</control>
-					<control type="radiobutton" id="8115">
+					<control type="radiobutton" id="8116">
 						<description>Menu Movies Sub MusicVideos</description>
 						<label>[B]$LOCALIZE[20389][/B]</label>
 						<include>ButtonMenuSettings2</include>
@@ -2332,7 +2398,7 @@
 						<selected>Skin.HasSetting(Menu_Movies_Sub_MusicVideos)</selected>
 						<enable>!Skin.HasSetting(Menu_Movies_Sub)</enable>
 					</control>
-					<control type="radiobutton" id="8116">
+					<control type="radiobutton" id="8117">
 						<description>Menu Movies Sub VideoPartyMode</description>
 						<label>[B]$LOCALIZE[589][/B]</label>
 						<include>ButtonMenuSettings2</include>
@@ -2341,7 +2407,7 @@
 						<selected>Skin.HasSetting(Menu_Movies_Sub_VideoPartyMode)</selected>
 						<enable>!Skin.HasSetting(Menu_Movies_Sub)</enable>
 					</control>
-					<control type="radiobutton" id="8117">
+					<control type="radiobutton" id="8118">
 						<description>Menu Movies Sub Custom1</description>
 						<label>[B]$LOCALIZE[24000] 1$INFO[Skin.String(Menu_Movies_Sub_Custom1_Label), - ][/B]</label>
 						<include>ButtonMenuSettings2</include>
@@ -2350,7 +2416,7 @@
 						<selected>Skin.HasSetting(Menu_Movies_Sub_Custom1)</selected>
 						<enable>!Skin.HasSetting(Menu_Movies_Sub)</enable>
 					</control>
-					<control type="radiobutton" id="8118">
+					<control type="radiobutton" id="8119">
 						<description>Menu Movies Sub Custom2</description>
 						<label>[B]$LOCALIZE[24000] 2$INFO[Skin.String(Menu_Movies_Sub_Custom2_Label), - ][/B]</label>
 						<include>ButtonMenuSettings2</include>
@@ -2359,7 +2425,7 @@
 						<selected>Skin.HasSetting(Menu_Movies_Sub_Custom2)</selected>
 						<enable>!Skin.HasSetting(Menu_Movies_Sub)</enable>
 					</control>
-					<control type="radiobutton" id="8119">
+					<control type="radiobutton" id="8120">
 						<description>Menu Movies Sub Custom3</description>
 						<label>[B]$LOCALIZE[24000] 3$INFO[Skin.String(Menu_Movies_Sub_Custom3_Label), - ][/B]</label>
 						<include>ButtonMenuSettings2</include>
@@ -2368,7 +2434,7 @@
 						<selected>Skin.HasSetting(Menu_Movies_Sub_Custom3)</selected>
 						<enable>!Skin.HasSetting(Menu_Movies_Sub)</enable>
 					</control>
-					<control type="radiobutton" id="8120">
+					<control type="radiobutton" id="8121">
 						<description>Menu Movies Sub Custom4</description>
 						<label>[B]$LOCALIZE[24000] 4$INFO[Skin.String(Menu_Movies_Sub_Custom4_Label), - ][/B]</label>
 						<include>ButtonMenuSettings2</include>
@@ -2377,7 +2443,7 @@
 						<selected>Skin.HasSetting(Menu_Movies_Sub_Custom4)</selected>
 						<enable>!Skin.HasSetting(Menu_Movies_Sub)</enable>
 					</control>
-					<control type="radiobutton" id="8121">
+					<control type="radiobutton" id="8122">
 						<description>Menu Movies Sub Custom5</description>
 						<label>[B]$LOCALIZE[24000] 5$INFO[Skin.String(Menu_Movies_Sub_Custom5_Label), - ][/B]</label>
 						<include>ButtonMenuSettings2</include>
@@ -2386,7 +2452,7 @@
 						<selected>Skin.HasSetting(Menu_Movies_Sub_Custom5)</selected>
 						<enable>!Skin.HasSetting(Menu_Movies_Sub)</enable>
 					</control>
-					<control type="radiobutton" id="8122">
+					<control type="radiobutton" id="8123">
 						<description>Menu Movies Sub Custom6</description>
 						<label>[B]$LOCALIZE[31156] 1$INFO[Skin.String(Menu_Movies_Sub_Custom6.Label), - ][/B]</label>
 						<include>ButtonMenuSettings2</include>
@@ -2395,7 +2461,7 @@
 						<selected>Skin.HasSetting(Menu_Movies_Sub_Custom6)</selected>
 						<enable>!Skin.HasSetting(Menu_Movies_Sub)</enable>
 					</control>
-					<control type="radiobutton" id="8123">
+					<control type="radiobutton" id="8124">
 						<description>Menu Movies Sub Custom7</description>
 						<label>[B]$LOCALIZE[31156] 2$INFO[Skin.String(Menu_Movies_Sub_Custom7.Label), - ][/B]</label>
 						<include>ButtonMenuSettings2</include>
@@ -2404,7 +2470,7 @@
 						<selected>Skin.HasSetting(Menu_Movies_Sub_Custom7)</selected>
 						<enable>!Skin.HasSetting(Menu_Movies_Sub)</enable>
 					</control>
-					<control type="radiobutton" id="8124">
+					<control type="radiobutton" id="8125">
 						<description>Menu Movies Sub Custom8</description>
 						<label>[B]$LOCALIZE[31156] 3$INFO[Skin.String(Menu_Movies_Sub_Custom8.Label), - ][/B]</label>
 						<include>ButtonMenuSettings2</include>
@@ -2427,6 +2493,14 @@
 					<onup>8100</onup>
 					<ondown>8100</ondown>
 					<include>VisibleFadeEffect</include>
+					<control type="button" id="8199">
+						<description>Menu TvShows Alternative Name</description>
+						<label>[B]$LOCALIZE[31201] :  [/B][COLOR=lightblue]$INFO[Skin.String(TvShowsCustomName)][/COLOR]</label>
+						<include>ButtonMenuSettings2</include>
+						<onclick>Skin.SetString(TvShowsCustomName)</onclick>
+						<textcolor>darkblue</textcolor>
+						<focusedcolor>darkblue</focusedcolor>
+					</control>
 					<control type="radiobutton" id="8101">
 						<description>Menu TVShows Sub</description>
 						<label>[B]$LOCALIZE[1034][/B]</label>
@@ -2587,6 +2661,14 @@
 					<onup>8100</onup>
 					<ondown>8100</ondown>
 					<include>VisibleFadeEffect</include>
+					<control type="button" id="8199">
+						<description>Menu MusicVideos Alternative Name</description>
+						<label>[B]$LOCALIZE[31201] :  [/B][COLOR=lightblue]$INFO[Skin.String(MusicVideosCustomName)][/COLOR]</label>
+						<include>ButtonMenuSettings2</include>
+						<onclick>Skin.SetString(MusicVideosCustomName)</onclick>
+						<textcolor>darkblue</textcolor>
+						<focusedcolor>darkblue</focusedcolor>
+					</control>
 					<control type="radiobutton" id="8101">
 						<description>Menu MusicVideos Sub</description>
 						<label>[B]$LOCALIZE[1034][/B]</label>
@@ -2756,6 +2838,14 @@
 					<onup>8100</onup>
 					<ondown>8100</ondown>
 					<include>VisibleFadeEffect</include>
+					<control type="button" id="8199">
+						<description>Menu TV Alternative Name</description>
+						<label>[B]$LOCALIZE[31201] :  [/B][COLOR=lightblue]$INFO[Skin.String(TvCustomName)][/COLOR]</label>
+						<include>ButtonMenuSettings2</include>
+						<onclick>Skin.SetString(TvCustomName)</onclick>
+						<textcolor>darkblue</textcolor>
+						<focusedcolor>darkblue</focusedcolor>
+					</control>
 					<control type="radiobutton" id="8101">
 						<description>Menu TV Sub</description>
 						<label>[B]$LOCALIZE[1034][/B]</label>
@@ -2889,6 +2979,14 @@
 					<onup>8100</onup>
 					<ondown>8100</ondown>
 					<include>VisibleFadeEffect</include>
+					<control type="button" id="8199">
+						<description>Menu Music Alternative Name</description>
+						<label>[B]$LOCALIZE[31201] :  [/B][COLOR=lightblue]$INFO[Skin.String(MusicCustomName)][/COLOR]</label>
+						<include>ButtonMenuSettings2</include>
+						<onclick>Skin.SetString(MusicCustomName)</onclick>
+						<textcolor>darkblue</textcolor>
+						<focusedcolor>darkblue</focusedcolor>
+					</control>
 					<control type="radiobutton" id="8101">
 						<description>Menu Music Sub</description>
 						<label>[B]$LOCALIZE[1034][/B]</label>
@@ -3121,6 +3219,14 @@
 					<onup>8100</onup>
 					<ondown>8100</ondown>
 					<include>VisibleFadeEffect</include>
+					<control type="button" id="8199">
+						<description>Menu Pictures Alternative Name</description>
+						<label>[B]$LOCALIZE[31201] :  [/B][COLOR=lightblue]$INFO[Skin.String(PicturesCustomName)][/COLOR]</label>
+						<include>ButtonMenuSettings2</include>
+						<onclick>Skin.SetString(PicturesCustomName)</onclick>
+						<textcolor>darkblue</textcolor>
+						<focusedcolor>darkblue</focusedcolor>
+					</control>
 					<control type="radiobutton" id="8101">
 						<description>Menu Pictures Sub</description>
 						<label>[B]$LOCALIZE[1034][/B]</label>
@@ -3272,6 +3378,14 @@
 					<onup>8100</onup>
 					<ondown>8100</ondown>
 					<include>VisibleFadeEffect</include>
+					<control type="button" id="8199">
+						<description>Menu Programs Alternative Name</description>
+						<label>[B]$LOCALIZE[31201] :  [/B][COLOR=lightblue]$INFO[Skin.String(ProgramsCustomName)][/COLOR]</label>
+						<include>ButtonMenuSettings2</include>
+						<onclick>Skin.SetString(ProgramsCustomName)</onclick>
+						<textcolor>darkblue</textcolor>
+						<focusedcolor>darkblue</focusedcolor>
+					</control>
 					<control type="radiobutton" id="8101">
 						<description>Menu Programs Sub</description>
 						<label>[B]$LOCALIZE[1034][/B]</label>
@@ -3504,6 +3618,14 @@
 					<onup>8100</onup>
 					<ondown>8100</ondown>
 					<include>VisibleFadeEffect</include>
+					<control type="button" id="8199">
+						<description>Menu Wheater Alternative Name</description>
+						<label>[B]$LOCALIZE[31201] :  [/B][COLOR=lightblue]$INFO[Skin.String(WeatherCustomName)][/COLOR]</label>
+						<include>ButtonMenuSettings2</include>
+						<onclick>Skin.SetString(WeatherCustomName)</onclick>
+						<textcolor>darkblue</textcolor>
+						<focusedcolor>darkblue</focusedcolor>
+					</control>
 					<control type="radiobutton" id="8101">
 						<description>Menu Weather Sub</description>
 						<label>[B]$LOCALIZE[1034][/B]</label>
@@ -3583,6 +3705,14 @@
 					<onup>8100</onup>
 					<ondown>8100</ondown>
 					<include>VisibleFadeEffect</include>
+					<control type="button" id="8199">
+						<description>Menu Favorites Alternative Name</description>
+						<label>[B]$LOCALIZE[31201] :  [/B][COLOR=lightblue]$INFO[Skin.String(FavoritesCustomName)][/COLOR]</label>
+						<include>ButtonMenuSettings2</include>
+						<onclick>Skin.SetString(FavoritesCustomName)</onclick>
+						<textcolor>darkblue</textcolor>
+						<focusedcolor>darkblue</focusedcolor>
+					</control>
 					<control type="radiobutton" id="8101">
 						<description>Menu Favourites Sub</description>
 						<label>[B]$LOCALIZE[1034][/B]</label>
@@ -3653,6 +3783,14 @@
 					<onup>8100</onup>
 					<ondown>8100</ondown>
 					<include>VisibleFadeEffect</include>
+					<control type="button" id="8199">
+						<description>Menu Settings Alternative Name</description>
+						<label>[B]$LOCALIZE[31201] :  [/B][COLOR=lightblue]$INFO[Skin.String(SettingsCustomName)][/COLOR]</label>
+						<include>ButtonMenuSettings2</include>
+						<onclick>Skin.SetString(SettingsCustomName)</onclick>
+						<textcolor>darkblue</textcolor>
+						<focusedcolor>darkblue</focusedcolor>
+					</control>
 					<control type="radiobutton" id="8101">
 						<description>Menu Settings Sub</description>
 						<label>[B]$LOCALIZE[1034][/B]</label>
@@ -3822,6 +3960,14 @@
 					<onup>8100</onup>
 					<ondown>8100</ondown>
 					<include>VisibleFadeEffect</include>
+					<control type="button" id="8199">
+						<description>Menu PlayDisc Alternative Name</description>
+						<label>[B]$LOCALIZE[31201] :  [/B][COLOR=lightblue]$INFO[Skin.String(PlayDiscCustomName)][/COLOR]</label>
+						<include>ButtonMenuSettings2</include>
+						<onclick>Skin.SetString(PlayDiscCustomName)</onclick>
+						<textcolor>darkblue</textcolor>
+						<focusedcolor>darkblue</focusedcolor>
+					</control>
 					<control type="radiobutton" id="8101">
 						<description>Menu PlayDisc Sub</description>
 						<label>[B]$LOCALIZE[1034][/B]</label>

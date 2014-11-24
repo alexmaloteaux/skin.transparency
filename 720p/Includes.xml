@@ -4,6 +4,7 @@
 	<include file="Includes_Variables.xml"/>
 	<include file="View-CoverFlow.xml"/>
 	<include file="View-Fanart.xml"/>
+	<include file="View-Fanart2.xml"/>
 	<include file="View-FullList.xml"/>
 	<include file="View-Icons.xml"/>
 	<include file="View-Item.xml"/>
@@ -95,7 +96,55 @@
 			<onright>9000</onright>
 			<showonepage>false</showonepage>
 			<orientation>vertical</orientation>
-			<visible>Control.IsVisible(50) + Skin.HasSetting(FanartLong)</visible>
+			<visible>!Window.IsVisible(PVR) + Control.IsVisible(50) + Skin.HasSetting(FanartLong)</visible>
+		</control>
+		<control type="scrollbar" id="60">
+			<posx>557</posx>
+			<posy>138</posy>
+			<width>20</width>
+			<height>310</height>
+			<texturesliderbackground border="0,10,0,10">scrollbar-back.png</texturesliderbackground>
+			<texturesliderbar border="0,10,0,10">scrollbar-front-nofocus.png</texturesliderbar>
+			<texturesliderbarfocus border="0,10,0,10">scrollbar-front.png</texturesliderbarfocus>
+			<textureslidernib>scrollbar-nib-nofocus.png</textureslidernib>
+			<textureslidernibfocus>scrollbar-nib.png</textureslidernibfocus>
+			<onleft>50</onleft>
+			<onright>9000</onright>
+			<showonepage>false</showonepage>
+			<orientation>vertical</orientation>
+			<visible>!Window.IsVisible(PVR) + Control.IsVisible(69) + !Skin.HasSetting(FanartShort) + !Skin.HasSetting(FanartLong)</visible>
+		</control>
+		<control type="scrollbar" id="60">
+			<posx>557</posx>
+			<posy>138</posy>
+			<width>20</width>
+			<height>164</height>
+			<texturesliderbackground border="0,10,0,10">scrollbar-back.png</texturesliderbackground>
+			<texturesliderbar border="0,10,0,10">scrollbar-front-nofocus.png</texturesliderbar>
+			<texturesliderbarfocus border="0,10,0,10">scrollbar-front.png</texturesliderbarfocus>
+			<textureslidernib>scrollbar-nib-nofocus.png</textureslidernib>
+			<textureslidernibfocus>scrollbar-nib.png</textureslidernibfocus>
+			<onleft>50</onleft>
+			<onright>9000</onright>
+			<showonepage>false</showonepage>
+			<orientation>vertical</orientation>
+			<visible>!Window.IsVisible(PVR) + Control.IsVisible(69) + Skin.HasSetting(FanartShort)</visible>
+		</control>
+		<control type="scrollbar" id="60">
+			<posx>557</posx>
+			<posy>138</posy>
+			<width>20</width>
+			<height>541</height>
+			<texturesliderbackground border="0,10,0,10">scrollbar-back.png</texturesliderbackground>
+			<texturesliderbar border="0,10,0,10">scrollbar-front-nofocus.png</texturesliderbar>
+			<texturesliderbarfocus border="0,10,0,10">scrollbar-front.png</texturesliderbarfocus>
+			<textureslidernib>scrollbar-nib-nofocus.png</textureslidernib>
+			<textureslidernibfocus>scrollbar-nib.png</textureslidernibfocus>
+			<onleft>50</onleft>
+			<onright>9000</onright>
+			<showonepage>false</showonepage>
+			<orientation>vertical</orientation>
+			<visible>!Window.IsVisible(PVR) + Control.IsVisible(69) + Skin.HasSetting(FanartLong)</visible>
 		</control>
 		<control type="scrollbar" id="60">
 			<posx>675</posx>
@@ -1504,13 +1553,25 @@
 		<posy>142</posy>
 		<height>436</height>
 	</include>
+	<include name="FanartNormal2">
+		<posy>142</posy>
+		<height>290</height>
+	</include>
 	<include name="FanartShort">
 		<posy>142</posy>
 		<height>291</height>
 	</include>
+	<include name="FanartShort2">
+		<posy>142</posy>
+		<height>145</height>
+	</include>
 	<include name="FanartLong">
 		<posy>142</posy>
 		<height>668</height>
+	</include>
+	<include name="FanartLong2">
+		<posy>142</posy>
+		<height>522</height>
 	</include>
 	<include name="FanartNormalBanners">
 		<posy>142</posy>
@@ -2555,6 +2616,7 @@
 			<visible>Container.Scrolling</visible>
 			<animation effect="fade" time="300">Visible</animation>
 			<animation effect="fade" time="300" delay="500">Hidden</animation>
+			<animation effect="slide" end="-270,0" time="0" condition="[Window.IsVisible(PVR) + [Control.IsVisible(11) | Control.IsVisible(12) | Control.IsVisible(13)]] | Control.IsVisible(50)">Conditional</animation>
 			<animation effect="slide" end="-200,0" time="0" condition="Control.IsVisible(51)">Conditional</animation>
 			<animation effect="slide" end="-1105,120" time="0" condition="Control.IsVisible(55) | Control.IsVisible(57) | Control.IsVisible(596)">Conditional</animation>
 			<animation effect="slide" end="-1105,215" time="0" condition="Control.IsVisible(56)">Conditional</animation>
